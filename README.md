@@ -1,8 +1,10 @@
 # Headless Records MCP Server
 
-A local [Model Context Protocol](https://modelcontextprotocol.io) (MCP) stdio server that gives agents structured, non-advisory access to public SEC Form 4 insider filing data via the hosted Headless Records API.
+A local [Model Context Protocol](https://modelcontextprotocol.io) (MCP) stdio server that gives agents structured, non-advisory access to public SEC Form 4 insider filing data via the hosted Headless Records API. 
 
 The server is a thin wrapper: it validates tool input, calls `https://api.headlessrecords.dev`, and returns the API's JSON responses as formatted text. It does not call SEC directly, does not connect to a database, and does not run ingestion jobs.
+
+Full API documentation: [headlessrecords.dev](https://headlessrecords.dev) · [OpenAPI spec](https://api.headlessrecords.dev/openapi.json)
 
 ## Safety and Scope
 
@@ -13,7 +15,11 @@ The server is a thin wrapper: it validates tool input, calls `https://api.headle
 ## Requirements
 
 - Node.js 20 or later (uses the built-in `fetch`)
-- A Headless Records API key (`hr_live_` prefix)
+- A Headless Records API key (`hr_live_` prefix) — [request design partner access](mailto:hello@headlessrecords.dev)
+- No key yet? Try the open preview endpoint:
+```bash
+  curl https://api.headlessrecords.dev/v1/ticker/TSLA/preview
+```
 
 ## Install and Build
 
